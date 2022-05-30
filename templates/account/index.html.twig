@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccountController!
+{% block title %}Mon compte
 {% endblock %}
 
 {% block content %}
@@ -13,9 +13,10 @@
 	-
 	<a href="{{path('app_account_password')}}">Modifier mon mot de passe</a>
 	<br/>
-	<a href="{{path('app_account_password')}}">Ajoutez mes addresses</a>
+	-
+	<a href="{{path('app_account_address')}}">Ajoutez mes addresses</a>
 	<br/>
-	<a href="{{path('app_account_password')}}">Mes commandes</a>
+	<a href="{{path('maintenance')}}">Mes commandes</a>
 	<br/>
 
 </hr>{% endblock %}

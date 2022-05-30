@@ -4,7 +4,48 @@
 .footer-custom,.footer-custom p {
     text-align: center;
     position: absolute;
-    bottom: 0;
     width: 100%;
     padding-top: 25px;
+}
+
+a {
+    text-decoration: none;
+
+    color: black;
+}
+
+
+.body {
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    font-size: 1rem;
+
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media(min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+.footer {
+
+    background-color: blue;
+
+
+    position: absolute;
+    flex-shrink: 0;
+
+    width: 100%;
+
+    bottom:0;
+    
 }

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{product.nom}}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="">
+		<div class="card-body">
+			<div class="text-center">
+				<h1>{{product.nom}}</h1>
+				<img src="/assets/images/{{product.illustration}}" alt="{{(product.nom)}}" class="img-fluid">
+			</br>
+			<h5 class="card-title">{{(product.nom)}}</h5>
+			<span class="card-subtitle mb-2 text-muted">
+				{{product.sousTitre}}
+			</span><br/>
+
+			<span class="mt-3">{{(product.prix /100)|number_format(2,',','.')}}
+				€</span>
+			<p class="card-text">{{product.description}}</p>
+			<a href="{{ path('app_add_to_cart',{id:product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+		</div>
+	</div>
+</div>{% endblock %}

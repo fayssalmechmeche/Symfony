@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
@@ -13,9 +12,36 @@
 
 		<!-- Bootstrap core CSS -->
 		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-		<link rel="" href="{{asset('assets/css/custom.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+		<script src="https://kit.fontawesome.com/9297b904be.js" crossorigin="anonymous"></script>
 
 		<style>
+			.navbar-item-custom,
+			.navbar-item-custom a {
+				color: white
+			}
+			.footer-custom,
+			.footer-custom p {
+				text-align: center;
+				position: absolute;
+				width: 100%;
+				padding-top: 25px;
+			}
+
+			a {
+				text-decoration: none;
+
+				color: black;
+			}
+
+
+			.body {
+				flex-direction: column;
+				display: flex;
+				min-height: 100vh;
+				font-size: 1rem;
+
+			}
 			.bd-placeholder-img {
 				font-size: 1.125rem;
 				text-anchor: middle;
@@ -30,62 +56,83 @@
 					font-size: 3.5rem;
 				}
 			}
+			.footer {
+
+				background-color: blue;
+
+
+				position: absolute;
+				flex-shrink: 0;
+
+				width: 100%;
+
+				bottom: 0;
+
+			}
 		</style>
 		<!-- Custom styles for this template -->
 		<link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
 	</head>
+
 	<body>
+
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-				<a class="navbar-brand" href="#">FayShop</a>
+				<a class="navbar-brand" href="{{path('home')}}">FayShop</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<div class="navbar-item-customs">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="nav-link" href="{{path('home')}}">Nos produits
 
-								</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="{{path('home')}}">Qui sommes-nous ?
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{path('app_products')}}">Nos produits
 
-								</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="{{path('home')}}">Contact
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{path('maintenance')}}">Qui sommes-nous ?
 
-								</a>
-							</li>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{path('maintenance')}}">Contact
 
-
-							{% if app.user %}
-								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('app_account') }}">Mon compte
-										<span class="sr-only"></span>
-									</a>
-								</li>
-								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('app_logout') }}">Deconnexion
-										<span class="sr-only"></span>
-									</a>
-								</li>
-							{% else %}
-								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('app_inscription') }}">Inscription
-										<span class="sr-only"></span>
-									</a>
-								</li>
-								<li class="nav-item active">
-									<a class="nav-link" href="{{ path('app_login') }}">Connexion
-										<span class="sr-only"></span>
-									</a>
-								</li>
-							{% endif %}
-						</div>
+							</a>
+						</li>
 					</ul>
+					<div class="navbar-item-custom">
+						{% if app.user %}
+
+
+							Bonjour,
+							{{app.user.nom}}
+
+							|
+							<a href="{{ path('app_account') }}">Mon compte
+
+							</a>
+							|
+
+							<a href="{{ path('app_logout') }}">Deconnexion
+
+							</a>
+							<a href="{{ path('app_cart') }}">
+								<i class="fa-solid fa-cart-shopping" style="padding-left:20px;"></i>
+							</a>
+
+
+						{% else %}
+
+							<a href="{{ path('app_inscription') }}">Inscription
+
+							</a>|<a href="{{ path('app_login') }}">Connexion
+
+							</a>
+
+						{% endif %}
+					</div>
+
 				</div>
 			</nav>
 		</header>
@@ -150,7 +197,7 @@
 
 			{% endif %}
 			<!-- Marketing messaging and featurettes
-																																																																																																																																																																																																																														================================================== -->
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			================================================== -->
 			<!-- Wrap the rest of the page in another container to center all the content. -->
 
 			<div
@@ -164,18 +211,23 @@
 			<!-- /.container -->
 
 			<!-- FOOTER -->
-			<footer class="d-flex pt-5  justify-content-center fixed-bottom" style="background-color: #dfeaff;">
+			<div class="footer">
+				<footer class="d-flex pt-5  justify-content-center ">
 
-				<p>&copy; 2022 Fayshop &middot;
-					<small>
-						La boutique du développeur</small>
-					<a href="#">Privacy</a>
-					&middot;
-					<a href="#">Terms</a>
-				</p>
-			</footer>
+					<p>&copy; 2022 Fayshop &middot;
+						<small>
+							La boutique du développeur</small>
+						<a href="#">Privacy</a>
+						&middot;
+						<a href="#">Terms</a>
+					</p>
+				</footer>
+			</div>
+
 		</main>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+
+
 	</body>
 </html>

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Nos produits
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-3">
+			<h3>Filtre</h3>
+			{{form(form)}}
+			</div>
+
+			<div class="col-md-3">
+				{% for product in products %}
+
+					<a href="{{path('app_product',{slug:product.slug})}}">
+						<div class="col-md-8" style=" width:18rem;">
+
+							<div class="text-center">
+								<h1>{{product.nom}}</h1>
+
+								<img src="/assets/images/{{product.illustration}}" alt="{{(product.nom)}}" class="img-fluid">
+
+							</br>
+						</div>
+					</a>
+
+					<h5 class="card-title">{{(product.nom)}}</h5>
+					<span class="card-subtitle mb-2 text-muted">
+						{{product.sousTitre}}
+					</span><br/>
+
+					<span class="mt-3">{{(product.prix /100)|number_format(2,',','.')}}
+						€</span>
+					<p class="card-text">{{product.description}}</p>
+					<a href="{{ path('app_add_to_cart',{id:product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+				</div>
+			</div>
+
+			<div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
